@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository
 import java.util.UUID
 
 @Repository
-interface ClientsRepository : JpaRepository<Client, UUID>
+interface ClientsRepository : JpaRepository<Client, UUID> {
+    fun findClientById(id: UUID): Client?
+}

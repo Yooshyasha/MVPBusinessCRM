@@ -16,8 +16,8 @@ class ClientController(
         return ResponseEntity.ok(clientsService.getClientById(UUID.fromString(clientId)))
     }
 
-    @PutMapping("/{clientId}")
-    fun updateClient(@RequestBody client: Client, @PathVariable clientId: String): ResponseEntity<Client> {
+    @PutMapping()
+    fun updateClient(@RequestBody client: Client): ResponseEntity<Client> {
         clientsService.updateClient(client)
         return ResponseEntity.ok(client)
     }

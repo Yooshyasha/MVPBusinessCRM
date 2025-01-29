@@ -21,8 +21,8 @@ class SaleController(
         return ResponseEntity.ok(saleService.getSaleById(saleId))
     }
 
-    @PutMapping("/{saleId}")
-    fun updateSale(@RequestBody sale: Sale, @PathVariable saleId: UUID): ResponseEntity<Sale> {
+    @PutMapping()
+    fun updateSale(@RequestBody sale: Sale): ResponseEntity<Sale> {
         saleService.updateSale(sale)
         return ResponseEntity.ok(sale)
     }

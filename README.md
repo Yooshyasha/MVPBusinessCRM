@@ -10,8 +10,7 @@
 
 - **GET** `/client/all`: Список клиентов
 - **GET** `/client/{id}`: Информация о клиенте
-- **PUT** `/client/{id}`  ``{ClientDTO}``: Обновление информации о клиенте
+- **PUT** `/client`  ``{Client}``: Обновление информации о клиенте
 - **GET** `/sale/all`: Список продаж
 - **GET** `/sale/{id}`: Информация о сделке
-- **POST** `/clients/create` ``{"clientFirstName"}``: Создать клиента
-- **POST** `/sale/create` ``{clientID, productName}``: Создать продажу
+- **PUT** `/client` ``{Sale}``: Обновление информации о продаже

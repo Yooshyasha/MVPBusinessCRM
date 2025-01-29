@@ -12,12 +12,12 @@ class ClientController(
     private val clientsService: ClientsService,
 ) {
     @GetMapping("/{clientId}")
-    fun getClient(@PathVariable clientId: UUID): ResponseEntity<Client> {
-        return ResponseEntity.ok(clientsService.getClientById(clientId))
+    fun getClient(@PathVariable clientId: String): ResponseEntity<Client> {
+        return ResponseEntity.ok(clientsService.getClientById(UUID.fromString(clientId)))
     }
 
     @PutMapping("/{clientId}")
-    fun updateClient(@RequestBody client: Client, @PathVariable clientId: UUID): ResponseEntity<Client> {
+    fun updateClient(@RequestBody client: Client, @PathVariable clientId: String): ResponseEntity<Client> {
         clientsService.updateClient(client)
         return ResponseEntity.ok(client)
     }

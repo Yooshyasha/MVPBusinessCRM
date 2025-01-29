@@ -8,10 +8,10 @@
 ### End-points: 
 **Каждый end-point является защищенным.**
 
-- **GET** `/clients`: Список клиентов
+- **GET** `/client/all`: Список клиентов
 - **GET** `/client/{id}`: Информация о клиенте
 - **PUT** `/client/{id}`  ``{ClientDTO}``: Обновление информации о клиенте
-- **GET** `/sales`: Список продаж
+- **GET** `/sale/all`: Список продаж
 - **GET** `/sale/{id}`: Информация о сделке
 - **POST** `/clients/create` ``{"clientFirstName"}``: Создать клиента
 - **POST** `/sale/create` ``{clientID, productName}``: Создать продажу

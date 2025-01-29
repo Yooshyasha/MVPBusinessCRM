@@ -7,5 +7,5 @@ import java.util.*
 data class Client(
     @Id @GeneratedValue(strategy = GenerationType.AUTO) val id: UUID? = null,
     var firstName: String? = null,
-    @OneToMany(fetch = FetchType.EAGER) val buyList: List<Sale> = listOf(),
+    @OneToMany(fetch = FetchType.EAGER) var buyList: List<Sale> = listOf(),
 )

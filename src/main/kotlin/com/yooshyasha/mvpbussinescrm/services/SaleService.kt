@@ -23,8 +23,14 @@ class SaleService(
     }
 
     fun createSale(clientId: UUID, productName: String): Sale {
-        val sale = Sale(productName = productName, client = clientsService.getClientById(clientId))
+        val client = clientsService.getClientById(clientId) ?: throw Exception("Client not found")
+
+        val sale = Sale(productName = productName, client = client)
         salesRepository.save(sale)
+
+        client.buyList = client.buyList.plus(sale)
+        clientsService.updateClient(client)
+
         return sale
     }
 }

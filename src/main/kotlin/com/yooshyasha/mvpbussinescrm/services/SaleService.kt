@@ -28,7 +28,7 @@ class SaleService(
         val sale = Sale(productName = productName, client = client)
         salesRepository.save(sale)
 
-        client.buyList = client.buyList.plus(sale)
+        client.buyList.add(sale)
         clientsService.updateClient(client)
 
         return sale

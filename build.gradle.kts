@@ -27,6 +27,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api
     implementation("io.jsonwebtoken:jjwt-api:0.12.6")
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.springframework.boot:spring-boot-testcontainers")
+    testImplementation("org.testcontainers:postgresql")
     runtimeOnly("org.postgresql:postgresql")
     // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl
     runtimeOnly("io.jsonwebtoken:jjwt-impl:0.12.6")

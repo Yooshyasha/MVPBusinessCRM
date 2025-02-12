@@ -12,6 +12,8 @@ services:
       SPRING_DATASOURCE_PASSWORD: qwerty
     depends_on:
       - db
+    command:
+      - ./gradlew build && java -jar build/libs/MVPBussinesCRM-0.0.1-SNAPSHOT.jar
 
   db:
     image: postgres

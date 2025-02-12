@@ -1,4 +1,4 @@
-FROM gradle:7.5-jdk21 AS builder
+FROM gradle AS builder
 
 WORKDIR /app
 COPY . .

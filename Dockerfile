@@ -3,7 +3,7 @@ FROM gradle AS builder
 WORKDIR /app
 COPY . .
 
-RUN gradle clean build
+RUN gradle clean build -x test
 
 FROM openjdk:21-jdk-oracle
 

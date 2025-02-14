@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mvp-business-crm-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mvp-business-crm
+  template:
+    metadata:
+      labels:
+        app: mvp-business-crm
+    spec:
+      containers:
+        - name: mvp-business-crm
+          image: yooshyasha/mvpbusinesscrm
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:postgresql://185.128.104.194:5432/mvpBusinessCRMAPI"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "api_mvpBusinessCRM"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "qwerty"
+            - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+              value: "org.postgresql.Driver"
+            - name: SPRING_JPA_DATABASE_PLATFORM
+              value: "org.hibernate.dialect.PostgreSQLDialect"

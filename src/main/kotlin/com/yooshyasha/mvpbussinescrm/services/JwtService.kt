@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 @Service
 class JwtService {
     @Bean
-    fun passwordEncoder(): PasswordEncoder {
+    fun passwordEncoder(): BCryptPasswordEncoder {
         return BCryptPasswordEncoder()
     }
 

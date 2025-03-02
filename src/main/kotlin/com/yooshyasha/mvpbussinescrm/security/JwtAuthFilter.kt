@@ -36,15 +36,13 @@ class JwtAuthFilter(
             val user = userService.getUserByUsername(username)
 
             if (jwtUtil.verifyToken(authToken, user)) {
-                val auth = UsernamePasswordAuthenticationToken(user, authToken)
+                val auth = UsernamePasswordAuthenticationToken(user, null, user.authorities)
                 auth.details = WebAuthenticationDetailsSource().buildDetails(request)
 
                 SecurityContextHolder.getContext().authentication = auth
             }
         } catch (e: Exception) {
             logger.error(e.message)
-
-            return doFilter(request, response, filterChain)
         }
 
         return doFilter(request, response, filterChain)

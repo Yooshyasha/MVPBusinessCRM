@@ -9,22 +9,23 @@ import org.springframework.security.core.userdetails.UserDetails
 import java.util.*
 
 @Entity
-class User : UserDetails {
+data class User (
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    var id: UUID? = null
+    var id: UUID? = null,
 
-    var firstName: String? = null
+    var firstName: String? = null,
 
-    var username: String? = null
-    var password: String? = null
+    var userName: String? = null,
 
+    var hashedPassword: String? = null
+) : UserDetails {
     override fun getUsername(): String {
-        return username!!
+        return userName!!
     }
 
     override fun getPassword(): String {
-        return password!!
+        return hashedPassword!!
     }
 
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {

@@ -11,7 +11,7 @@ import javax.crypto.SecretKey
 
 @Component
 class JwtUtil {
-    private final val SECRET: SecretKey = Keys.hmacShaKeyFor(Base64.getDecoder().decode("mySecret"))
+    private final val SECRET = Keys.hmacShaKeyFor(Base64.getDecoder().decode("4gFZqZ0kXBXNHSgg/yp+b9HMyZRJmZ+PqqH0ZCnkWsxLPBRBjXdw26TKS+LfgiOr57BuwkkSX38kGyfiySHdYA=="))
     private final val TOKENLIFETIME: Long = 60 * 60 * 1000
 
     fun verifyToken(token: String, userDetails: UserDetails): Boolean {

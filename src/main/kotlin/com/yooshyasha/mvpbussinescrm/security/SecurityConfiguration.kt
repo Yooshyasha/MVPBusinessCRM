@@ -20,6 +20,7 @@ class SecurityConfiguration(
             .csrf { it.disable() }
             .authorizeHttpRequests {
                 it.requestMatchers("/jwt/**").permitAll()
+                it.requestMatchers("/docs", "/swagger-ui/**", "/api-docs").permitAll()
                 it.anyRequest().authenticated()
             }
             .addFilterAfter(jwtAuthFilter, UsernamePasswordAuthenticationFilter::class.java)

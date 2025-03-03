@@ -49,7 +49,7 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Run gradle build
-        run: ./gradlew build --no-daemon
+        run: ./gradlew build -x test --no-daemon
 
       - name: Run tests
         run: ./gradlew test --no-daemon
